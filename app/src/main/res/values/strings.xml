@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">TakeIT</string>
+
+    <string-array name="academicYear">
+        <item>FE 1</item>
+        <item>FE 2</item>
+        <item>SE 1</item>
+        <item>SE 2</item>
+        <item>TE 1</item>
+        <item>TE 2</item>
+        <item>BE 1</item>
+        <item>BE 2</item>
+
+    </string-array>
+
+    <string-array name="branches">
+        <item>Computer</item>
+        <item>IT</item>
+        <item>Electrical</item>
+        <item>Electronics</item>
+        <item>EXTC</item>
+        <item>Mechanical</item>
+        <item>Automobile</item>
+        <item>Marine</item>
+
+    </string-array>
+
+    <string-array name="book_year">
+        <item>FE</item>
+        <item>SE</item>
+        <item>TE</item>
+        <item>BE</item>
+
+    </string-array>
+
+    <string-array name="book_sem">
+        <item>SEM 1</item>
+        <item>SEM 2</item>
+        <item>SEM 3</item>
+        <item>SEM 4</item>
+        <item>SEM 5</item>
+        <item>SEM 6</item>
+        <item>SEM 7</item>
+        <item>SEM 8</item>
+
+    </string-array>
+
+</resources>

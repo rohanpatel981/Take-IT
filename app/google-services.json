@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "29379517531",
+    "firebase_url": "https://takeit-b1554.firebaseio.com",
+    "project_id": "takeit-b1554",
+    "storage_bucket": "takeit-b1554.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29379517531:android:31e80c0141a4b1f64af37e",
+        "android_client_info": {
+          "package_name": "com.example.takeit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29379517531-10gvct8sshpfr4hhd8espaqm9s43llfi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.takeit",
+            "certificate_hash": "485562e73fc77dd1a4f71bca44f80f3509ee46ce"
+          }
+        },
+        {
+          "client_id": "29379517531-58qk6te3eshibt51r9dpaln56ceumkj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU-KKKwRLRjoe32XIIthoWyLY_gqxlHik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29379517531-58qk6te3eshibt51r9dpaln56ceumkj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

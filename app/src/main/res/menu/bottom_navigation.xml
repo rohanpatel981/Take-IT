@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_bookmark"
+        android:icon="@drawable/ic_baseline_bookmarks_24"
+        android:title="Bookmarks"/>
+
+    <item
+        android:id="@+id/nav_upload"
+        android:icon="@drawable/ic_baseline_add_a_photo_24"
+        android:title="Sell Book"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Settings"/>
+
+</menu>

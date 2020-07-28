@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class OnClickDetailsFragment extends Fragment {
@@ -29,6 +31,7 @@ public class OnClickDetailsFragment extends Fragment {
     private DatabaseReference mDatabaseRef;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference noteRef;
+    private ProgressBar progressBar_Circle;
     //String edition, year, sem, name;
     //String imageUrl;
     //String userName, userBranch, userAcademic;
@@ -57,6 +60,7 @@ public class OnClickDetailsFragment extends Fragment {
         tvUser_Academic = v.findViewById(R.id.tvUser_Academic);
 
         imageViewBook = v.findViewById(R.id.imageViewBook);
+        progressBar_Circle = v.findViewById(R.id.progressBar_Circle);
 
 
         Bundle bundle = new Bundle();
@@ -93,7 +97,18 @@ public class OnClickDetailsFragment extends Fragment {
                 tvBook_Sem.setText("Semester: "+data.sem);
                 tvBook_Year.setText("Year: "+data.year);
 
-                Picasso.get().load(data.imageUrl).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(imageViewBook);
+                Picasso.get().load(data.imageUrl).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(imageViewBook, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressBar_Circle.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        progressBar_Circle.setVisibility(View.INVISIBLE);
+                    }
+                });
+
 
                // edition = data.edition;
                // name = data.name;
@@ -104,6 +119,7 @@ public class OnClickDetailsFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressBar_Circle.setVisibility(View.INVISIBLE);
 
             }
         });

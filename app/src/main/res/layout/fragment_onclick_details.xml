@@ -11,6 +11,13 @@
         android:textSize="50sp"
         android:text="Worked"/-->
 
+    <ProgressBar
+        android:id="@+id/progressBar_Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
     <TextView
         android:id="@+id/tvBookdetails"
         android:layout_width="match_parent"

@@ -37,16 +37,17 @@ public class HomeFragment extends Fragment implements ImageAdapter.OnItemClickLi
     private RecyclerView mRecycleView;
     private ImageAdapter mAdapter;
 
-    private DatabaseReference mDatabaseRef;
+    private DatabaseReference mDatabaseRef, nDatabaseRef;
     FirebaseStorage mStorage;
     private List<UploadBookImage> mUploads;
 
     TextView tv_userName;
     private ProgressBar progressBar_Circle;
+    private String usersID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference noteRef = db.collection("UserDetails")
-            .document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            .document(usersID);
 
 
     @Nullable
@@ -84,6 +85,8 @@ public class HomeFragment extends Fragment implements ImageAdapter.OnItemClickLi
 
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("BookDetails");
+        nDatabaseRef = FirebaseDatabase.getInstance().getReference("BookMarks");
+
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -137,12 +140,30 @@ public class HomeFragment extends Fragment implements ImageAdapter.OnItemClickLi
         }
 
 
-        Toast.makeText(getActivity(),"Normal click at position: "+position, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity(),"Normal click at position: "+position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onWhatEverClick(int position) {
-        Toast.makeText(getActivity(),"Whatever click at position: "+position, Toast.LENGTH_SHORT).show();
+
+        UploadBookImage selectedItem = mUploads.get(position);
+        String selectedKey = selectedItem.getKey();
+        String selectedUserKey = selectedItem.getUserKey();
+
+        Bundle arg = new Bundle();
+        arg.putString("ImageID",selectedKey);
+        arg.putString("UserID",selectedUserKey);
+
+        UploadBookImage uploadBookImage = new UploadBookImage(selectedItem.getName(),selectedItem.getImageUrl(),selectedItem.getEdition(),
+                selectedItem.getYear(),selectedItem.getSem());
+        nDatabaseRef.child(usersID).child(selectedUserKey).child(selectedKey).setValue(uploadBookImage);
+
+        //BookmarkBookImage bookmarkBookImage = new BookmarkBookImage(selectedUserKey,selectedKey);
+       //nDatabaseRef.child(usersID).child(selectedKey).setValue(bookmarkBookImage);
+
+
+
+        Toast.makeText(getActivity(),"Saved to Bookmark", Toast.LENGTH_SHORT).show();
     }
 
     @Override

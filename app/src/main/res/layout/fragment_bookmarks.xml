@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <ProgressBar
+        android:id="@+id/b_progressBar_Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
     <TextView
+        android:id="@+id/tvMyBookmarks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bookmark Fragment"
-        android:textSize="30sp"
+        android:text="My Bookmarks"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMyBookmarks"
+        android:layout_marginTop="10dp"
+        android:text="Available"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mbrecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvAvailable"
+        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>

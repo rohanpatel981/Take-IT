@@ -3,19 +3,37 @@ package com.example.takeit;
 import com.google.firebase.database.Exclude;
 
 public class UploadBookImage {
-    private String mBookName, mImageUrl, mBookEdition, mBookYear, mBookSem;
+    private String mBookName, mImageUrl, mBookEdition, mBookYear, mBookSem, mUserID,mPriority;
     private String mKey, uKey;
 
     public UploadBookImage(){
         //empty constructor..
     }
 
-    public UploadBookImage(String name, String imageUrl, String edition, String year, String sem){
+    public UploadBookImage(String name, String imageUrl, String edition, String year, String sem, String userId, String priority){
         mBookName = name;
         mImageUrl = imageUrl;
         mBookEdition = edition;
         mBookYear = year;
         mBookSem = sem;
+        mUserID = userId;
+        mPriority = priority;
+    }
+
+    public String getPriority(){
+        return mPriority;
+    }
+
+    public void setPriority(String pri){
+        mPriority = pri;
+    }
+
+    public String getUserID(){
+        return mUserID;
+    }
+
+    public void setUserID(String uid){
+        mUserID = uid;
     }
 
     public String getName(){

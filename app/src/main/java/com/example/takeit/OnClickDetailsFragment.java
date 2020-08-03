@@ -53,11 +53,11 @@ public class OnClickDetailsFragment extends Fragment {
         tvBook_Name = v.findViewById(R.id.tvBook_Name);
         tvBook_edition = v.findViewById(R.id.tvBook_edition);
         tvBook_Year = v.findViewById(R.id.tvBook_Year);
-        tvBook_Sem = v.findViewById(R.id.tvBook_Sem);
+        //tvBook_Sem = v.findViewById(R.id.tvBook_Sem);
 
         tvUser_Name = v.findViewById(R.id.tvUser_Name);
-        tvUser_branch = v.findViewById(R.id.tvUser_branch);
-        tvUser_Academic = v.findViewById(R.id.tvUser_Academic);
+        //tvUser_branch = v.findViewById(R.id.tvUser_branch);
+        //tvUser_Academic = v.findViewById(R.id.tvUser_Academic);
 
         imageViewBook = v.findViewById(R.id.imageViewBook);
         progressBar_Circle = v.findViewById(R.id.progressBar_Circle);
@@ -66,65 +66,65 @@ public class OnClickDetailsFragment extends Fragment {
         Bundle bundle = new Bundle();
         String imageID = getArguments().getString("ImageID");
         String userID = getArguments().getString("UserID");
+        //Toast.makeText(getActivity(),imageID+" "+userID, Toast.LENGTH_SHORT).show();
         //tvImageID.setText(userID+" "+imageID);
 
-        noteRef = db.collection("UserDetails").document(userID);
-        noteRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@javax.annotation.Nullable DocumentSnapshot documentSnapshot, @javax.annotation.Nullable FirebaseFirestoreException e) {
-                if (e!=null){
-                    Toast.makeText(getActivity(),"Error while loading"+e.toString(),Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (documentSnapshot.exists()){
 
-                    tvUser_Name.setText("Name: "+documentSnapshot.getString("Name"));
-                    tvUser_branch.setText("Branch: "+documentSnapshot.getString("Branch"));
-                    tvUser_Academic.setText("Class: "+documentSnapshot.getString("AcademicYear"));
+            noteRef = db.collection("UserDetails").document(userID);
+            noteRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@javax.annotation.Nullable DocumentSnapshot documentSnapshot, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                    if (e != null) {
+                        Toast.makeText(getActivity(), "Error while loading" + e.toString(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (documentSnapshot.exists()) {
+
+                        tvUser_Name.setText(documentSnapshot.getString("Name"));
+                        //tvUser_branch.setText("Branch: " + documentSnapshot.getString("Branch"));
+                        //tvUser_Academic.setText("Class: " + documentSnapshot.getString("AcademicYear"));
                    /* userName = documentSnapshot.getString("Name");
                     userBranch = documentSnapshot.getString("Branch");
                     userAcademic = documentSnapshot.getString("AcademicYear"); */
+                    }
                 }
-            }
-        });
+            });
 
-        mDatabaseRef.child(userID).child(imageID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                FetchingImageDetailsData data = dataSnapshot.getValue(FetchingImageDetailsData.class);
-                tvBook_Name.setText("Name: "+data.name);
-                tvBook_edition.setText("Edition: "+data.edition);
-                tvBook_Sem.setText("Semester: "+data.sem);
-                tvBook_Year.setText("Year: "+data.year);
+            mDatabaseRef.child(imageID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    FetchingImageDetailsData data = dataSnapshot.getValue(FetchingImageDetailsData.class);
+                    tvBook_Name.setText(data.name);
+                    tvBook_edition.setText(data.edition);
+                    //tvBook_Sem.setText("Semester: " + data.sem);
+                    tvBook_Year.setText(data.year+" "+data.sem);
 
-                Picasso.get().load(data.imageUrl).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(imageViewBook, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        progressBar_Circle.setVisibility(View.INVISIBLE);
-                    }
+                    Picasso.get().load(data.imageUrl).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(imageViewBook, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            progressBar_Circle.setVisibility(View.INVISIBLE);
+                        }
 
-                    @Override
-                    public void onError(Exception e) {
-                        progressBar_Circle.setVisibility(View.INVISIBLE);
-                    }
-                });
-
-
-               // edition = data.edition;
-               // name = data.name;
-                //imageUrl = data.imageUrl;
-              //  sem = data.sem;
-              //  year = data.year;
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                progressBar_Circle.setVisibility(View.INVISIBLE);
-
-            }
-        });
+                        @Override
+                        public void onError(Exception e) {
+                            progressBar_Circle.setVisibility(View.INVISIBLE);
+                        }
+                    });
 
 
+                    // edition = data.edition;
+                    // name = data.name;
+                    //imageUrl = data.imageUrl;
+                    //  sem = data.sem;
+                    //  year = data.year;
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    progressBar_Circle.setVisibility(View.INVISIBLE);
+
+                }
+            });
 
 
         return v;

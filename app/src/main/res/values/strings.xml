@@ -45,4 +45,7 @@
 
     </string-array>
 
+    <string name="pop_up_success_text_0">You have successfully uploaded the book for sell.</string>
+    <string name="pop_up_success_text_1">Have patience! Sip a cup of coffee. A buyer may ping you soon.</string>
+
 </resources>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    android:background="#0f4c75">
 
     <!--TextView
         android:id="@+id/tvImageID"
@@ -15,108 +16,216 @@
         android:id="@+id/progressBar_Circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+        android:layout_centerInParent="true" />
 
     <TextView
         android:id="@+id/tvBookdetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book Details"
-        android:textSize="35sp"
         android:gravity="center"
-        />
+        android:text="Book Details"
+        android:textSize="35sp" />
 
-    <ImageView
-        android:id="@+id/imageViewBook"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/tvBookdetails"/>
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
 
-    <TextView
-        android:id="@+id/tvBook_Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewBook"
-        android:textSize="20sp"
-        android:text="Book name"
-        android:gravity="center"
-        />
-    <TextView
-        android:id="@+id/tvBook_edition"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBook_Name"
-        android:textSize="20sp"
-        android:text="Book edition"
-        android:gravity="center"
-        />
-    <TextView
-        android:id="@+id/tvBook_Year"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBook_edition"
-        android:textSize="20sp"
-        android:text="Book year"
-        android:gravity="center"
-        />
-    <TextView
-        android:id="@+id/tvBook_Sem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBook_Year"
-        android:textSize="20sp"
-        android:text="Book sem"
-        android:gravity="center"
-        />
+        <ImageView
+            android:id="@+id/imageViewBook"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/tvBookdetails" />
+
+    </androidx.cardview.widget.CardView>
 
 
-    <TextView
-        android:id="@+id/tvUserDetails"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seller Details"
-        android:textSize="35sp"
-        android:gravity="center"
-        android:layout_below="@+id/tvBook_Sem"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonPingSeller"
+        android:layout_below="@+id/cardView"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
-        />
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="#bbe1fa"
+        app:cardCornerRadius="10dp">
 
-    <TextView
-        android:id="@+id/tvUser_Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUserDetails"
-        android:textSize="20sp"
-        android:text="User name"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        />
-    <TextView
-        android:id="@+id/tvUser_branch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUser_Name"
-        android:textSize="20sp"
-        android:text="User branch"
-        android:gravity="center"
-        />
-    <TextView
-        android:id="@+id/tvUser_Academic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUser_branch"
-        android:textSize="20sp"
-        android:text="User Academic Year"
-        android:gravity="center"
-        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvBook_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Book name"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvBook_Name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Edition:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvBook_edition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Third 2020"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Book year:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvBook_Year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="FE SEM 1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Owner:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvUser_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="Rohan Patel"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <!--TextView
+                android:id="@+id/tvBook_Sem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvBook_Year"
+                android:textSize="20sp"
+                android:text="Book sem"
+                android:gravity="center"
+                /-->
+
+
+            <!--TextView
+                android:id="@+id/tvUserDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seller Details"
+                android:textSize="35sp"
+                android:gravity="center"
+                android:layout_below="@+id/tvBook_Sem"
+                android:layout_marginTop="20dp"
+                /-->
+
+            <!--TextView
+                android:id="@+id/tvUser_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvBook_Year"
+                android:textSize="20sp"
+                android:textColor="#696969"
+                android:text="User name"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                /-->
+            <!--TextView
+                android:id="@+id/tvUser_branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUser_Name"
+                android:textSize="20sp"
+                android:text="User branch"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/tvUser_Academic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUser_branch"
+                android:textSize="20sp"
+                android:text="User Academic Year"
+                android:gravity="center"
+                /-->
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/buttonPingSeller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_rounded_ping"
         android:text="Ping Seller"
-        android:textStyle="bold"
         android:textSize="25sp"
-        android:layout_alignParentBottom="true"/>
+        android:textStyle="bold" />
 
 </RelativeLayout>

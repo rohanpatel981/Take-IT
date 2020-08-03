@@ -44,10 +44,17 @@ public class BookmarksFragment extends Fragment implements BookmarkImageAdapter.
     private ValueEventListener mDBListener;
     private String usersID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+    View v;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_bookmarks,container,false);
+        if (v != null){
+            if ((ViewGroup)v.getParent() != null)
+                ((ViewGroup)v.getParent()).removeView(v);
+            return v;
+        }
+        v = inflater.inflate(R.layout.fragment_bookmarks,container,false);
 
         mbRecycleView = v.findViewById(R.id.mbrecycleView);
         mbRecycleView.setHasFixedSize(true);

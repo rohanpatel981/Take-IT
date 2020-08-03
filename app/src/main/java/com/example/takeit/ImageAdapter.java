@@ -20,11 +20,16 @@ import java.util.List;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
     private Context mContext;
     private List<UploadBookImage> mUploads;
+
     private OnItemClickListener mListener;
 
     public ImageAdapter(Context context, List<UploadBookImage> uploads){
         mContext = context;
         mUploads = uploads;
+    }
+
+    public String getLastItemId(){
+        return mUploads.get(mUploads.size()-1).getPriority();
     }
 
     @NonNull
@@ -41,6 +46,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         holder.tv_year_sem.setText(uploadCurrent.getYear()+" "+uploadCurrent.getSem());
         holder.tv_edition.setText("Edition: "+uploadCurrent.getEdition());
         Picasso.get().load(uploadCurrent.getImageUrl()).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(holder.image_view_upload);
+
     }
 
     @Override

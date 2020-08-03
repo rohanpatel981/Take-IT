@@ -107,6 +107,9 @@ public class Registration extends AppCompatActivity {
                             user.put("AcademicYear",academic_year);
                             user.put("Branch",branches);
                             user.put("EmailID",email);
+                            user.put("Books Sold",0);
+                            user.put("Books Received",0);
+                            user.put("Books for sale",0);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

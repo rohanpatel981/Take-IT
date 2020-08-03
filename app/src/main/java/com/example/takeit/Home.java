@@ -3,6 +3,7 @@ package com.example.takeit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,15 +37,6 @@ public class Home extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
-/*
-        buttonLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
-            }
-        }); */
 
     }
 
@@ -52,6 +44,7 @@ public class Home extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             Fragment selectedFragment = null;
 
             switch (item.getItemId()){
@@ -71,7 +64,8 @@ public class Home extends AppCompatActivity {
                     selectedFragment = new SettingsFragment();
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).addToBackStack(null).commit();
 
             return true;
         }

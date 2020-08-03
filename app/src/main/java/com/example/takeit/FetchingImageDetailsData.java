@@ -6,6 +6,8 @@ public class FetchingImageDetailsData {
     public String name;
     public String year;
     public String sem;
+    public String userID;
+    public String priority;
 
     public FetchingImageDetailsData(){
 

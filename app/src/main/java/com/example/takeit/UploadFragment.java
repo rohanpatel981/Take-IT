@@ -1,7 +1,10 @@
 package com.example.takeit;
 
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,8 +28,11 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -60,16 +66,24 @@ public class UploadFragment extends Fragment {
 
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef, nDatabaseRef;
+    DatabaseReference cDatabaseRef = FirebaseDatabase.getInstance().getReference("Counters");
+    int count;
+
     FirebaseFirestore fStore;
-
     FirebaseAuth fAuth;
-
     private StorageTask mUploadTask;
+
+    Dialog epicDialog;
+    ImageView close_popup;
+    Button btnSuccessOkay;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_upload,container,false);
+
+        epicDialog = new Dialog(getActivity());
+        close_popup = v.findViewById(R.id.close_popup);
 
         buttonAddBook = v.findViewById(R.id.buttonAddBook);
         buttonBrowse = v.findViewById(R.id.buttonBrowse);
@@ -109,7 +123,7 @@ public class UploadFragment extends Fragment {
 
         mStorageRef = FirebaseStorage.getInstance().getReference("BookDetails");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("BookDetails");
-        nDatabaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
+        //nDatabaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
 
         fStore = FirebaseFirestore.getInstance();
 
@@ -149,6 +163,23 @@ public class UploadFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        cDatabaseRef.child("UploadCounter").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                count = Integer.parseInt(dataSnapshot.getValue().toString());
+                //Toast.makeText(getActivity(),dataSnapshot.getValue().toString(),Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private String getFileExtension(Uri uri){
         ContentResolver cR = getContext().getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -181,43 +212,44 @@ public class UploadFragment extends Fragment {
                     fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-
+                            //long negMili = -1 * mili;
                             UploadBookImage upload = new UploadBookImage(bookName,uri.toString(),
-                                    bookEditionYear,bookAcademicYear,bookSem);
-                           // String uploadID = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(userID).child(String.valueOf(mili)).setValue(upload);
+                                    bookEditionYear,bookAcademicYear,bookSem,userID,String.valueOf(count));
 
-                     /*       DocumentReference documentReference = fStore.collection("BookDetails")
-                                    .document(userID);
+                            mDatabaseRef.child(String.valueOf(count)).setValue(upload);
 
-                            Map<String,Object> imageData = new HashMap<>();
-                            imageData.put("imageUrl",uri.toString());
-                            //imageData.put("ImageName",mili+"."+getFileExtension(mImageUri));
-                            //imageData.put("Duration",java.text.DateFormat.getDateTimeInstance().format(new Date()));
-                            imageData.put("name",bookName);
-                           // imageData.put("BookAcademicAndSemester",bookAcademicYear+" "+bookSem);
-                            imageData.put("sem",bookSem);
-                            imageData.put("year",bookAcademicYear);
-                            imageData.put("edition",bookEditionYear);
-
-                            Map<String,Object> bookNumber = new HashMap<>();
-                            bookNumber.put(String.valueOf(mili),imageData);
-
-                            documentReference.set(bookNumber,SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("TAG","On success: User Profile is created for "+userID);
-                                }
-
-                            }); */
                         }
                     });
-                    //...................................................
-                    Toast.makeText(getActivity(),"Book Added For Sale",Toast.LENGTH_SHORT).show();
 
+                    count = count - 1;
+                    cDatabaseRef.child("UploadCounter").setValue(String.valueOf(count));
+                    //...................................................
+                   // Toast.makeText(getActivity(),"Book Added For Sale",Toast.LENGTH_SHORT).show();
+                    epicDialog.setContentView(R.layout.custom_layout_success);
+                    btnSuccessOkay = (Button) epicDialog.findViewById(R.id.btnSuccessOkay);
+                    btnSuccessOkay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            epicDialog.dismiss();
+                        }
+                    });
+
+                    close_popup = (ImageView) epicDialog.findViewById(R.id.close_popup);
+                    close_popup.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            epicDialog.dismiss();
+                        }
+                    });
+
+                    epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    epicDialog.show();
+
+                    //...................................................
                     editTextBookName.setText(null);
                     editTextEdition.setText(null);
                     im.setImageDrawable(null);
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

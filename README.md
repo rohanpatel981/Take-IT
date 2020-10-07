@@ -20,5 +20,6 @@ The android app lets you:
 - Get notified if someone is interested in buying the book.
 
 # Screenshots
-- Home Page:
-![WhatsApp Image 2020-07-12 at 11 48 05](https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg)
+| Home Page      | Upload Page      |
+|------------|-------------|
+| ![WhatsApp Image 2020-07-12 at 11 48 05](https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg) | ![WhatsApp Image 2020-07-12 at 20 28 00](https://user-images.githubusercontent.com/34983017/95363585-4a321680-08ed-11eb-8b67-1b6bcf9cc9b7.jpeg) |

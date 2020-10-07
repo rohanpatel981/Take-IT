@@ -20,10 +20,12 @@ The android app lets you:
 - Get notified if someone is interested in buying the book.
 
 # Screenshots
-| Home Page      | Upload Page      | My Profile     |
+| Home      | Upload      | My Profile     |
 |------------|-------------|------------|
 | <img src="https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95363585-4a321680-08ed-11eb-8b67-1b6bcf9cc9b7.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365335-a007be00-08ef-11eb-95d9-eb77338f0466.jpeg"  height="500"> |
 
-| Notifications      | Settings      |
-|------------|------------|
-| <img src="https://user-images.githubusercontent.com/34983017/95365183-72227980-08ef-11eb-8069-a2ffa3a779e6.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365524-e3fac300-08ef-11eb-8d68-6eab86375237.jpeg"  height="500"> |
+| Notifications      | Settings      | Book Details      |
+|------------|------------|------------|
+| <img src="https://user-images.githubusercontent.com/34983017/95365183-72227980-08ef-11eb-8069-a2ffa3a779e6.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365524-e3fac300-08ef-11eb-8d68-6eab86375237.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95368404-b6b01400-08f3-11eb-9199-231b5ce2fcbe.jpeg"  height="500"> |
+
+

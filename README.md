@@ -20,11 +20,10 @@ The android app lets you:
 - Get notified if someone is interested in buying the book.
 
 # Screenshots
-| Home Page      | Upload Page      |
-|------------|-------------|
-| ![WhatsApp Image 2020-07-12 at 11 48 05](https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg) | ![WhatsApp Image 2020-07-12 at 20 28 00](https://user-images.githubusercontent.com/34983017/95363585-4a321680-08ed-11eb-8b67-1b6bcf9cc9b7.jpeg) |
+| Home Page      | Upload Page      | My Profile     |
+|------------|-------------|------------|
+| <img src="https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95363585-4a321680-08ed-11eb-8b67-1b6bcf9cc9b7.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365335-a007be00-08ef-11eb-95d9-eb77338f0466.jpeg"  height="500"> |
 
-
-| My Profile     | Notifications      | Settings      |
-|------------|-------------|-------------|
-| ![WhatsApp Image 2020-07-28 at 20 40 48](https://user-images.githubusercontent.com/34983017/95365335-a007be00-08ef-11eb-95d9-eb77338f0466.jpeg) | ![WhatsApp Image 2020-10-07 at 21 37 44](https://user-images.githubusercontent.com/34983017/95365183-72227980-08ef-11eb-8069-a2ffa3a779e6.jpeg) | ![WhatsApp Image 2020-07-28 at 20 40 47](https://user-images.githubusercontent.com/34983017/95365524-e3fac300-08ef-11eb-8d68-6eab86375237.jpeg) |
+| Notifications      | Settings      |
+|------------|------------|
+| <img src="https://user-images.githubusercontent.com/34983017/95365183-72227980-08ef-11eb-8069-a2ffa3a779e6.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365524-e3fac300-08ef-11eb-8d68-6eab86375237.jpeg"  height="500"> |

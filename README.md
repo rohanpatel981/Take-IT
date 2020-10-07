@@ -18,3 +18,7 @@ The android app lets you:
 - Maintain your record (in profile section): Books sold, Books received, and Books for sale.
 - Upload your used/new books for selling or delete previously uploaded books.
 - Get notified if someone is interested in buying the book.
+
+# Screenshots
+- Home Page:
+![WhatsApp Image 2020-07-12 at 11 48 05](https://user-images.githubusercontent.com/34983017/95362992-7f8a3480-08ec-11eb-8185-34464cd4ed37.jpeg)

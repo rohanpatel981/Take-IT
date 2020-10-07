@@ -1,5 +1,5 @@
 # Take-IT Android App
-Take-IT is an Android application for buying and selling new/used books. Unlike other apps, Take-IT is free and open source. 
+Take-IT is an Android application for buying and selling new/used books. Unlike other apps, Take-IT is free and open source. (It contains no ads)
 
 # About
 Take-IT is made for you to comfortably buy and re-sell your used books by sitting at your comfort zone. This application has been made specially during the covid-19 situation, so that students do not have to unnecessarily go out. 
@@ -28,4 +28,25 @@ The android app lets you:
 |------------|------------|------------|
 | <img src="https://user-images.githubusercontent.com/34983017/95365183-72227980-08ef-11eb-8069-a2ffa3a779e6.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95365524-e3fac300-08ef-11eb-8d68-6eab86375237.jpeg"  height="500"> | <img src="https://user-images.githubusercontent.com/34983017/95368404-b6b01400-08f3-11eb-9199-231b5ce2fcbe.jpeg"  height="500"> |
 
+# Permissions
+- Internet Access.
+- Run at startup.
+- Read and write to external storage.
 
+The network access permissions are made use of for downloading content. The external storage permission is used to cache article images for viewing offline.
+
+# Support
+In case of any bugs or glitches, please feel free to report it to rohanpatel98.rp@gmail.com. We would be happy to have look at it and make it more user friendly.
+
+# Roadmap
+Future implementation:
+- Track user behaviour and show contents related to interest and books bookmarked.
+- Make it generic in nature by allowing all types of users to sell their books. (As of now, it's only focused on engineering books)
+
+# Contribution
+- Rohan M. Patel - Lead Developer
+- Akash Mishra - UI/UX Design Expert
+- Udit Doshi - Design and pattern Advisor
+
+# Project Status
+- The development has been slowed down due to academic unit tests, assignments and semester exams. 

@@ -6,7 +6,7 @@ Take-IT is made for you to comfortably buy and re-sell your used books by sittin
 
 This application allows you to browse through hundreds of different books uploaded by various users and bookmark them. 
 
-This application is orginally created by Rohan M. Patel (lead developer) along with Akash Mishra (Design and UI)  and Udit Doshi (Design and UI). 
+This application is orginally created by Rohan M. Patel (lead developer) along with Akash Mishra (Design and UI)  and Udit Doshi (Design and UI and developer). 
 
 # Features
 The android app lets you:

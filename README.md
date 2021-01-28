@@ -46,7 +46,7 @@ Future implementation:
 # Contribution
 - Rohan M. Patel - Lead Developer
 - Akash Mishra - UI/UX Design Expert
-- Udit Doshi - Design and pattern Advisor
+- Udit Doshi & Yash Mehta - Design and pattern Developer
 
 # Project Status
 - The development has been slowed down due to academic unit tests, assignments and semester exams. 
